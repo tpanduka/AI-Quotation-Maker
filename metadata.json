@@ -1,5 +1,5 @@
 {
-  "name": "A4 Quotation Creator",
+  "name": "AI Quotation Maker",
   "description": "A simple, clean, single-page web app to generate a printable A4-size quotation. Users can enter company and customer details, add line items, and print a professional-looking quotation.",
   "requestFramePermissions": []
 }

@@ -7,9 +7,9 @@ const getInitialQuoteNumber = () => `Q-${new Date().getFullYear()}-001`;
 const initialCompanyDetails: CompanyDetails = {
   name: 'E-TECH SOLUTIONS',
   logo: '',
-  address: '123 Tech Street, Silicon Valley, CA 94000',
-  phone: '+1 (555) 123-4567',
-  email: 'contact@etechsolutions.com',
+  address: '72/10,Edirisinghe Road,Mirihana,Nugegoda,',
+  phone: '+940777889734',
+  email: 'etechmultisolutions@gmail.com',
 };
 
 const initialCustomerDetails: CustomerDetails = {

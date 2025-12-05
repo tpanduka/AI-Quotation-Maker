@@ -1,8 +1,12 @@
 import React from 'react';
 import type { UseQuotationReturn } from '../hooks/useQuotation';
-import { PlusIcon, TrashIcon, RefreshIcon } from './Icons';
+import { PlusIcon, TrashIcon, RefreshIcon, DownloadIcon } from './Icons';
 
-export const QuotationForm: React.FC<UseQuotationReturn> = ({
+interface QuotationFormProps extends UseQuotationReturn {
+  handleDownloadPdf: () => void;
+}
+
+export const QuotationForm: React.FC<QuotationFormProps> = ({
   company,
   customer,
   items,
@@ -27,6 +31,7 @@ export const QuotationForm: React.FC<UseQuotationReturn> = ({
   setCurrency,
   setWarranty,
   resetForm,
+  handleDownloadPdf,
 }) => {
   const currencies = [
     { symbol: '$', name: 'USD' },
@@ -45,10 +50,17 @@ export const QuotationForm: React.FC<UseQuotationReturn> = ({
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row gap-2">
         <button
-          onClick={() => window.print()}
-          className="w-full sm:w-auto flex-grow bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+          onClick={handleDownloadPdf}
+          className="w-full sm:w-auto flex-grow bg-green-600 text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
         >
-          Print / Save as PDF
+          <DownloadIcon />
+          Download PDF
+        </button>
+        <button
+          onClick={() => window.print()}
+          className="w-full sm:w-auto bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Print
         </button>
         <button
           onClick={resetForm}

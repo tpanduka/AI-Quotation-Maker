@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import type { UseQuotationReturn } from '../hooks/useQuotation';
 
-export const QuotationPreview: React.FC<UseQuotationReturn> = ({
+export const QuotationPreview = forwardRef<HTMLDivElement, UseQuotationReturn>(({
   company,
   customer,
   items,
@@ -14,9 +14,9 @@ export const QuotationPreview: React.FC<UseQuotationReturn> = ({
   notes,
   currency,
   warranty,
-}) => {
+}, ref) => {
   return (
-    <div className="a4-page bg-white shadow-lg p-8 w-[210mm] min-h-[297mm] text-sm print:shadow-none print:p-12">
+    <div ref={ref} className="a4-page bg-white shadow-lg p-8 w-[210mm] min-h-[297mm] text-sm print:shadow-none print:p-12 print:w-full print:min-h-screen">
       <header className="flex justify-between items-start pb-8 border-b-2 border-gray-200">
         <div className="w-2/5">
           {company.logo && (
@@ -116,4 +116,4 @@ export const QuotationPreview: React.FC<UseQuotationReturn> = ({
       </footer>
     </div>
   );
-};
+});
